@@ -1,0 +1,11 @@
+[15-Dec-2025 08:36:16 UTC] PHP Warning:  require(/home/abdaealmasi/public_html/playpro.abdaealmasi.store/vendor/autoload.php): Failed to open stream: No such file or directory in /home/abdaealmasi/public_html/playpro.abdaealmasi.store/artisan on line 10
+[15-Dec-2025 08:36:16 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '/home/abdaealmasi/public_html/playpro.abdaealmasi.store/vendor/autoload.php' (include_path='.:/opt/alt/php83/usr/share/pear:/opt/alt/php83/usr/share/php:/usr/share/pear:/usr/share/php') in /home/abdaealmasi/public_html/playpro.abdaealmasi.store/artisan:10
+Stack trace:
+#0 {main}
+  thrown in /home/abdaealmasi/public_html/playpro.abdaealmasi.store/artisan on line 10
+[15-Dec-2025 08:36:33 UTC] PHP Warning:  require(/home/abdaealmasi/public_html/playpro.abdaealmasi.store/vendor/autoload.php): Failed to open stream: No such file or directory in /home/abdaealmasi/public_html/playpro.abdaealmasi.store/artisan on line 10
+[15-Dec-2025 08:36:33 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '/home/abdaealmasi/public_html/playpro.abdaealmasi.store/vendor/autoload.php' (include_path='.:/opt/alt/php83/usr/share/pear:/opt/alt/php83/usr/share/php:/usr/share/pear:/usr/share/php') in /home/abdaealmasi/public_html/playpro.abdaealmasi.store/artisan:10
+Stack trace:
+#0 {main}
+  thrown in /home/abdaealmasi/public_html/playpro.abdaealmasi.store/artisan on line 10
+[15-Dec-2025 13:11:01 UTC] PHP Fatal error:  Cannot use Illuminate\Support\Facades\Route as Route because the name is already in use in /home/abdaealmasi/public_html/playpro.abdaealmasi.store/routes/api.php on line 19

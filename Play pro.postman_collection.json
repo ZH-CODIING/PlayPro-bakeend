@@ -1,0 +1,4755 @@
+{
+  "info": {
+    "_postman_id": "015a330d-1a42-4c79-b622-d528aa1d9813",
+    "name": "Play pro",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "34212662"
+  },
+  "item": [
+    {
+      "name": "Auth",
+      "item": [
+        {
+          "name": "Register",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Abdalrhman\",\n  \"email\": \"Owner@example.com\",\n  \"phone\": \"01234545789\",\n  \"password\": \"123456\"\n}"
+            },
+            "url": {
+              "raw": "https://playpro.abdaealmasi.store/api/register",
+              "protocol": "https",
+              "host": [
+                "playpro",
+                "abdaealmasi",
+                "store"
+              ],
+              "path": [
+                "api",
+                "register"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "registerOwner",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Abdalrhan\",\n  \"email\": \"Ower22@example.com\",\n  \"phone\": \"012345245789\",\n  \"password\": \"123456\",\n  \"registration_role\": \"Coach\"  //  Coach, Owner, \n}"
+            },
+            "url": {
+              "raw": "https://playpro.abdaealmasi.store/api/registerOwner",
+              "protocol": "https",
+              "host": [
+                "playpro",
+                "abdaealmasi",
+                "store"
+              ],
+              "path": [
+                "api",
+                "registerOwner"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Login",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n\n  \"email\": \"raghda@gmail.com\",\n  \"password\": \"password\"\n}"
+            },
+            "url": {
+              "raw": "https://playpro.abdaealmasi.store/api/login",
+              "protocol": "https",
+              "host": [
+                "playpro",
+                "abdaealmasi",
+                "store"
+              ],
+              "path": [
+                "api",
+                "login"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "updateRole",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "18|Ihi9Gllm7fFkk7ZPZ7Ear21ccnlmzXJVy2axF8Wje29991f6",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n\r\n  \"role\": \"Coach\" // Admin, Coach, Owner, User\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "https://playpro.abdaealmasi.store/api/users/8/role",
+              "protocol": "https",
+              "host": [
+                "playpro",
+                "abdaealmasi",
+                "store"
+              ],
+              "path": [
+                "api",
+                "users",
+                "8",
+                "role"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "pending-registrations",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "18|Ihi9Gllm7fFkk7ZPZ7Ear21ccnlmzXJVy2axF8Wje29991f6",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "https://playpro.abdaealmasi.store/api/pending-registrations",
+              "protocol": "https",
+              "host": [
+                "playpro",
+                "abdaealmasi",
+                "store"
+              ],
+              "path": [
+                "api",
+                "pending-registrations"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "New Request",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "179|JWzlWDpJAkdkmPD06g6pFKrylEUBcICpjZqCelfDa6c6e8b7",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"name\": \"مدير الأكاديمية الجديد\",\n    \"email\": \"academy@example.com\",\n    \"password\": \"secretpassword\",\n    \"phone\": \"0555555555\",\n    \"role\": \"OwnerAcademy\",\n    \"status\": \"active\"\n}"
+            },
+            "url": {
+              "raw": "https://playpro.abdaealmasi.store/api/admin/users/create",
+              "protocol": "https",
+              "host": [
+                "playpro",
+                "abdaealmasi",
+                "store"
+              ],
+              "path": [
+                "api",
+                "admin",
+                "users",
+                "create"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "https://playpro.abdaealmasi.store/api/reset-password-otp",
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"email\": \"abdo.king22227@gmail.com\",\r\n    \"otp\": \"778093\",\r\n    \"new_password\": \"new_password_123\",\r\n    \"new_password_confirmation\": \"new_password_123\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "https://playpro.abdaealmasi.store/api/reset-password-otp",
+              "protocol": "https",
+              "host": [
+                "playpro",
+                "abdaealmasi",
+                "store"
+              ],
+              "path": [
+                "api",
+                "reset-password-otp"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "https://playpro.abdaealmasi.store/api/forgot-password",
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "POST",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"email\": \"abdo.king22227@gmail.com\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "https://playpro.abdaealmasi.store/api/forgot-password",
+              "protocol": "https",
+              "host": [
+                "playpro",
+                "abdaealmasi",
+                "store"
+              ],
+              "path": [
+                "api",
+                "forgot-password"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Contact Us",
+      "item": [
+        {
+          "name": "Send Contact Message",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "name",
+                  "value": "John Doe",
+                  "type": "text"
+                },
+                {
+                  "key": "email",
+                  "value": "john@example.com",
+                  "type": "text"
+                },
+                {
+                  "key": "country",
+                  "value": "Egypt",
+                  "type": "text"
+                },
+                {
+                  "key": "phone",
+                  "value": "+20123456789",
+                  "type": "text"
+                },
+                {
+                  "key": "subject",
+                  "value": "Inquiry",
+                  "type": "text"
+                },
+                {
+                  "key": "message",
+                  "value": "Hello, I want info about your platform.",
+                  "type": "text"
+                }
+              ]
+            },
+            "url": {
+              "raw": "{{base_url}}/api/contact-us",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "contact-us"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get All Contact Messages (Admin)",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/api/contact-messages",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "contact-messages"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get Single Contact Message (Admin)",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/api/contact-messages/1",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "contact-messages",
+                "1"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "App Info API",
+      "item": [
+        {
+          "name": "Get App Info",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/app-info",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "app-info"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Create / Update App Info",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "platform_name",
+                  "value": "My Platform",
+                  "type": "text"
+                },
+                {
+                  "key": "logo",
+                  "type": "file",
+                  "value": null
+                },
+                {
+                  "key": "facebook",
+                  "value": "https://facebook.com/example",
+                  "type": "text"
+                },
+                {
+                  "key": "instagram",
+                  "value": "https://instagram.com/example",
+                  "type": "text"
+                },
+                {
+                  "key": "tiktok",
+                  "value": "https://tiktok.com/@example",
+                  "type": "text"
+                },
+                {
+                  "key": "x",
+                  "value": "https://x.com/example",
+                  "type": "text"
+                },
+                {
+                  "key": "snapchat",
+                  "value": "https://snapchat.com/add/example",
+                  "type": "text"
+                },
+                {
+                  "key": "phone",
+                  "value": "+20123456789",
+                  "type": "text"
+                },
+                {
+                  "key": "whatsapp",
+                  "value": "+20123456789",
+                  "type": "text"
+                },
+                {
+                  "key": "management_name",
+                  "value": "Company Management",
+                  "type": "text"
+                },
+                {
+                  "key": "management_image",
+                  "type": "file",
+                  "src": "/D:/719uBohXNtL._AC_SY300_SX300_QL70_ML2_.jpg"
+                },
+                {
+                  "key": "address",
+                  "value": "Cairo, Egypt",
+                  "type": "text"
+                }
+              ]
+            },
+            "url": {
+              "raw": "{{locale}}/api/app-info",
+              "host": [
+                "{{locale}}"
+              ],
+              "path": [
+                "api",
+                "app-info"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Partners",
+      "item": [
+        {
+          "name": "Get All Partners",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/api/partners",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "partners"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get Single Partner",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/api/partners/{{partner_id}}",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "partners",
+                "{{partner_id}}"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Create Partner",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "name",
+                  "value": "Partner Name",
+                  "type": "text"
+                },
+                {
+                  "key": "description",
+                  "value": "Partner description",
+                  "type": "text"
+                },
+                {
+                  "key": "image",
+                  "type": "file",
+                  "value": null
+                },
+                {
+                  "key": "link",
+                  "value": "",
+                  "type": "text",
+                  "uuid": "931e8ba9-3fc2-4cc4-a6a8-3dd7be4e6cc1"
+                }
+              ]
+            },
+            "url": {
+              "raw": "{{base_url}}/api/partners",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "partners"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Update Partner",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "name",
+                  "value": "Updated Partner Name",
+                  "type": "text"
+                },
+                {
+                  "key": "description",
+                  "value": "Updated description",
+                  "type": "text"
+                },
+                {
+                  "key": "image",
+                  "type": "file",
+                  "value": null
+                }
+              ]
+            },
+            "url": {
+              "raw": "{{base_url}}/api/partners/{{partner_id}}",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "partners",
+                "{{partner_id}}"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Delete Partner",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/api/partners/{{partner_id}}",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "partners",
+                "{{partner_id}}"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Users",
+      "item": [
+        {
+          "name": "Profile",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "7|jCljNKHsSobanQG0JKCJS8Pl4FupMhjvzeNH3MvI37140ac6",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/api/users/profile",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "users",
+                "profile"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Update Profile",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "17|l1FfFkhqUmzSdet1i4hUnKAvns5kOlczcxv45mxv15c9ce10",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "avatar",
+                  "type": "file",
+                  "src": "3Do8cGJXC/faaz logo 1-02.png"
+                }
+              ]
+            },
+            "url": {
+              "raw": "https://playpro.abdaealmasi.store/api/users/profile",
+              "protocol": "https",
+              "host": [
+                "playpro",
+                "abdaealmasi",
+                "store"
+              ],
+              "path": [
+                "api",
+                "users",
+                "profile"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Reset Password",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"old_password\":\"123456\",\n  \"new_password\":\"654321\"\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/users/reset-password",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "users",
+                "reset-password"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Logout",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/users/logout",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "users",
+                "logout"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Admin: List Users",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "7|jCljNKHsSobanQG0JKCJS8Pl4FupMhjvzeNH3MvI37140ac6",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/api/users",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "users"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Admin: Delete User",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/users/1",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "users",
+                "1"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Fields",
+      "item": [
+        {
+          "name": "List Fields",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "13|3dITPKoQmEhMGR0iY9haFe9XyWUMunU6UnJpcmEu227b5f6a",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/api/fields",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "fields"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Create Field",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "13|3dITPKoQmEhMGR0iY9haFe9XyWUMunU6UnJpcmEu227b5f6a",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"name\": \"ملعب الجزيرة\",\n    \"size\": \"20x40\",\n    \"capacity\": 10,\n    \"latitude\": 30.0444,\n    \"longitude\": 31.2357,\n    \"city\": \"القاهرة\",\n    \"address\": \"شارع التحرير، وسط القاهرة\",\n    \"description\": \"ملعب صيانة ممتازة\",\n    \"periods\": [\n        {\n            \"start_time\": \"09:00\",\n            \"end_time\": \"11:00\",\n            \"price_per_player\": 50\n        },\n        {\n            \"start_time\": \"11:30\",\n            \"end_time\": \"13:30\",\n            \"price_per_player\": 60\n        },\n        {\n            \"start_time\": \"14:00\",\n            \"end_time\": \"16:00\",\n            \"price_per_player\": 70\n        }\n    ]\n}\n"
+            },
+            "url": {
+              "raw": "https://playpro.abdaealmasi.store/api/fields",
+              "protocol": "https",
+              "host": [
+                "playpro",
+                "abdaealmasi",
+                "store"
+              ],
+              "path": [
+                "api",
+                "fields"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "New Request",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "13|3dITPKoQmEhMGR0iY9haFe9XyWUMunU6UnJpcmEu227b5f6a",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n\r\n    \"periods\": [\r\n        {\r\n            \"start_time\": \"08:00\",\r\n            \"end_time\": \"10:00\",\r\n            \"price_per_player\": 55\r\n        },\r\n        {\r\n            \"start_time\": \"10:30\",\r\n            \"end_time\": \"12:30\",\r\n            \"price_per_player\": 65\r\n        }\r\n    ]\r\n}\r\n",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "https://playpro.abdaealmasi.store/api/fields/1",
+              "protocol": "https",
+              "host": [
+                "playpro",
+                "abdaealmasi",
+                "store"
+              ],
+              "path": [
+                "api",
+                "fields",
+                "1"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Field Periods",
+      "item": [
+        {
+          "name": "List Periods",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "18|Ihi9Gllm7fFkk7ZPZ7Ear21ccnlmzXJVy2axF8Wje29991f6",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/fields/1/periods",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "fields",
+                "1",
+                "periods"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Create Period",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"start_time\":\"13:30\",\n  \"end_time\":\"15:00\",\n  \"price_per_player\":50\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/fields/1/periods",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "fields",
+                "1",
+                "periods"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Bookings",
+      "item": [
+        {
+          "name": "Create bookField",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "233|6TakBQ2ZDqlR0Y62YIHnlc7pvKyE1vfCPCKqaUds67fdfd0f",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"field_id\": 22,\n    \"period_id\": 197,\n    \"name\": \"أحمد محمد\",\n    \"phone\": \"201023402756\",\n    \"date\": \"2026-01-10\",\n\n    \"payment_method\": \"cash\",\n    \"payment_type\": \"deposit\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "https://playpro.abdaealmasi.store/api/bookField",
+              "protocol": "https",
+              "host": [
+                "playpro",
+                "abdaealmasi",
+                "store"
+              ],
+              "path": [
+                "api",
+                "bookField"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Create Booking",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "124|WmTMyKD4KMdsowMAGAlPWxlOdokpLqCg6tqvo0Gp63bfbc70",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json",
+                "type": "text"
+              },
+              {
+                "key": "payment_method",
+                "value": "cash",
+                "type": "text"
+              },
+              {
+                "key": "payment_type",
+                "value": "full",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"field_id\": 23,\n  \"period_id\": 113,\n  \"name\": \"raghda helmy\",\n  \"phone\": \"201027302904\",\n  \"email\": \"raghda@gmail.com\",\n  \"date\": \"2025-12-20\",\n  \"days\": [\"اتنين\", \"حد\", \"سبت\"],\n  \"players_count\": 3,\n  \"payment_method\": \"cash\",\n  \"payment_type\": \"full\"\n}\n",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "https://playpro.abdaealmasi.store/api/bookings",
+              "protocol": "https",
+              "host": [
+                "playpro",
+                "abdaealmasi",
+                "store"
+              ],
+              "path": [
+                "api",
+                "bookings"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Verify QR",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "18|Ihi9Gllm7fFkk7ZPZ7Ear21ccnlmzXJVy2axF8Wje29991f6",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"qr_code_url\":\"https://playpro.abdaealmasi.store/qrcodes/booking_9_2Py65C.png\"\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/api/bookings/verify-qr",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "bookings",
+                "verify-qr"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "my-bookings",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "237|v0AOl0r6DFUdhbVHEamCYrjqcxVLZWq2m8ArLODm91fa87d1",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "https://playpro.abdaealmasi.store/api/my-bookings",
+              "protocol": "https",
+              "host": [
+                "playpro",
+                "abdaealmasi",
+                "store"
+              ],
+              "path": [
+                "api",
+                "my-bookings"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "All bookings",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "107|1eJfn1N7Ng1ix9DglucwpBi5g4e3BXQ1zQPI8ita320b6538",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/bookings",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "bookings"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Admin Update Booking",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{admin_token}}"
+              }
+            ],
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "field_id",
+                  "value": "3",
+                  "type": "text"
+                },
+                {
+                  "key": "period_id",
+                  "value": "7",
+                  "type": "text"
+                },
+                {
+                  "key": "name",
+                  "value": "Ahmed Mohamed",
+                  "type": "text"
+                },
+                {
+                  "key": "phone",
+                  "value": "01012345678",
+                  "type": "text"
+                },
+                {
+                  "key": "email",
+                  "value": "ahmed@test.com",
+                  "type": "text"
+                },
+                {
+                  "key": "date",
+                  "value": "2025-01-20",
+                  "type": "text"
+                },
+                {
+                  "key": "players_count",
+                  "value": "10",
+                  "type": "text"
+                },
+                {
+                  "key": "age",
+                  "value": "18",
+                  "type": "text"
+                },
+                {
+                  "key": "discount",
+                  "value": "50",
+                  "type": "text"
+                },
+                {
+                  "key": "price",
+                  "value": "600",
+                  "type": "text"
+                },
+                {
+                  "key": "renewal_price",
+                  "value": "600",
+                  "type": "text"
+                },
+                {
+                  "key": "renewal_date",
+                  "value": "2025-02-19",
+                  "type": "text"
+                },
+                {
+                  "key": "paid",
+                  "value": "300",
+                  "type": "text"
+                },
+                {
+                  "key": "remaining",
+                  "value": "300",
+                  "type": "text"
+                },
+                {
+                  "key": "payment_method",
+                  "value": "cash",
+                  "type": "text"
+                },
+                {
+                  "key": "status",
+                  "value": "active",
+                  "type": "text"
+                }
+              ]
+            },
+            "url": {
+              "raw": "{{base_url}}/api/admin/bookings/{{booking_id}}",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "admin",
+                "bookings",
+                "{{booking_id}}"
+              ]
+            },
+            "description": "Admin only – update booking using multipart/form-data (all fields are sometimes)"
+          },
+          "response": []
+        },
+        {
+          "name": "academyBookings",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": ""
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "cancel booking",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "124|WmTMyKD4KMdsowMAGAlPWxlOdokpLqCg6tqvo0Gp63bfbc70",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": ""
+            },
+            "url": {
+              "raw": "https://playpro.abdaealmasi.store/api/bookings/54/cancel",
+              "protocol": "https",
+              "host": [
+                "playpro",
+                "abdaealmasi",
+                "store"
+              ],
+              "path": [
+                "api",
+                "bookings",
+                "54",
+                "cancel"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "/bookings/contract",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "284|8YkESDYF54gbMj9rt31dMIilgMB8KzZhUO0a0X6e2c8be7ab",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"user_name\": \"كابتن محمد سمير\",\r\n    \"user_email\": \"m.samir.academy@example.com\",\r\n    \"user_password\": \"password123\",\r\n    \"user_phone\": \"010998870766\",\r\n    \"field_id\": 23,\r\n    \"days\": [\"Saturday\", \"Tuesday\", \"Thursday\"],\r\n    \"start_date\": \"2026-02-01\",\r\n    \"end_date\": \"2026-08-01\",\r\n    \"start_time\": \"16:00\",\r\n    \"end_time\": \"18:00\",\r\n    \"contract_price\": 12000,\r\n    \"payment_method\": \"credit\",\r\n    \"paid\": 5000\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "https://playpro.abdaealmasi.store/api/bookings/contract",
+              "protocol": "https",
+              "host": [
+                "playpro",
+                "abdaealmasi",
+                "store"
+              ],
+              "path": [
+                "api",
+                "bookings",
+                "contract"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Field Periods API",
+      "item": [
+        {
+          "name": "عرض كل الفترات",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "107|1eJfn1N7Ng1ix9DglucwpBi5g4e3BXQ1zQPI8ita320b6538",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer <ACCESS_TOKEN>",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "https://playpro.abdaealmasi.store/api/periods",
+              "protocol": "https",
+              "host": [
+                "playpro",
+                "abdaealmasi",
+                "store"
+              ],
+              "path": [
+                "api",
+                "periods"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "إنشاء فترة جديدة",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "13|3dITPKoQmEhMGR0iY9haFe9XyWUMunU6UnJpcmEu227b5f6a",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer <ACCESS_TOKEN>",
+                "type": "text"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"start_time\": \"09:00\",\n  \"end_time\": \"11:00\",\n  \"price_per_player\": 50\n}"
+            },
+            "url": {
+              "raw": "https://playpro.abdaealmasi.store/api/fields/1/periods",
+              "protocol": "https",
+              "host": [
+                "playpro",
+                "abdaealmasi",
+                "store"
+              ],
+              "path": [
+                "api",
+                "fields",
+                "1",
+                "periods"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "عرض فترة محددة",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer <ACCESS_TOKEN>",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "https://playpro.abdaealmasi.store/api/fields/1/periods/1",
+              "protocol": "https",
+              "host": [
+                "playpro",
+                "abdaealmasi",
+                "store"
+              ],
+              "path": [
+                "api",
+                "fields",
+                "1",
+                "periods",
+                "1"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "تحديث فترة",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer <ACCESS_TOKEN>",
+                "type": "text"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"start_time\": \"10:00\",\n  \"end_time\": \"12:00\",\n  \"price_per_player\": 60\n}"
+            },
+            "url": {
+              "raw": "https://playpro.abdaealmasi.store/api/fields/1/periods/1",
+              "protocol": "https",
+              "host": [
+                "playpro",
+                "abdaealmasi",
+                "store"
+              ],
+              "path": [
+                "api",
+                "fields",
+                "1",
+                "periods",
+                "1"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "حذف فترة",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer <ACCESS_TOKEN>",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "https://playpro.abdaealmasi.store/api/fields/1/periods/1",
+              "protocol": "https",
+              "host": [
+                "playpro",
+                "abdaealmasi",
+                "store"
+              ],
+              "path": [
+                "api",
+                "fields",
+                "1",
+                "periods",
+                "1"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "عرض الفترات فقط بدون تكرار",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "107|1eJfn1N7Ng1ix9DglucwpBi5g4e3BXQ1zQPI8ita320b6538",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer <ACCESS_TOKEN>",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "https://playpro.abdaealmasi.store/api/periods",
+              "protocol": "https",
+              "host": [
+                "playpro",
+                "abdaealmasi",
+                "store"
+              ],
+              "path": [
+                "api",
+                "periods"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Field Images API",
+      "item": [
+        {
+          "name": "عرض كل صور الملعب",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "13|3dITPKoQmEhMGR0iY9haFe9XyWUMunU6UnJpcmEu227b5f6a",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer <ACCESS_TOKEN>",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "https://playpro.abdaealmasi.store/api/fields/1/images",
+              "protocol": "https",
+              "host": [
+                "playpro",
+                "abdaealmasi",
+                "store"
+              ],
+              "path": [
+                "api",
+                "fields",
+                "1",
+                "images"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "حذف صورة",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer <ACCESS_TOKEN>",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "https://playpro.abdaealmasi.store/api/field-images/1",
+              "protocol": "https",
+              "host": [
+                "playpro",
+                "abdaealmasi",
+                "store"
+              ],
+              "path": [
+                "api",
+                "field-images",
+                "1"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "رفع أيقونة وصور المعرض",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "13|3dITPKoQmEhMGR0iY9haFe9XyWUMunU6UnJpcmEu227b5f6a",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "icon",
+                  "type": "file",
+                  "src": "7wKiC22CP/1764612907_6797.jpg"
+                },
+                {
+                  "key": "images[]",
+                  "type": "file",
+                  "src": "dbBvMGODK/1764612907_9076.jpg"
+                },
+                {
+                  "key": "images[]",
+                  "type": "file",
+                  "src": "OZiXenR8t/1764612907_9076.jpg"
+                }
+              ]
+            },
+            "url": {
+              "raw": "https://playpro.abdaealmasi.store/api/fields/1/images",
+              "protocol": "https",
+              "host": [
+                "playpro",
+                "abdaealmasi",
+                "store"
+              ],
+              "path": [
+                "api",
+                "fields",
+                "1",
+                "images"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "تعيين صورة أيقونة",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer <ACCESS_TOKEN>",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "https://playpro.abdaealmasi.store/api/field-images/1/make-icon",
+              "protocol": "https",
+              "host": [
+                "playpro",
+                "abdaealmasi",
+                "store"
+              ],
+              "path": [
+                "api",
+                "field-images",
+                "1",
+                "make-icon"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "News & Events",
+      "item": [
+        {
+          "name": "Get All News & Events",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/news-events",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "news-events"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get Single News/Event",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/news-events/{{news_event_id}}",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "news-events",
+                "{{news_event_id}}"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Create News/Event",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "title",
+                  "value": "Event Title",
+                  "type": "text"
+                },
+                {
+                  "key": "description",
+                  "value": "Event description",
+                  "type": "text"
+                },
+                {
+                  "key": "images[]",
+                  "type": "file",
+                  "value": null
+                },
+                {
+                  "key": "images[]",
+                  "type": "file",
+                  "value": null
+                }
+              ]
+            },
+            "url": {
+              "raw": "{{base_url}}/api/news-events",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "news-events"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Update News/Event",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "title",
+                  "value": "Updated title",
+                  "type": "text"
+                },
+                {
+                  "key": "description",
+                  "value": "Updated description",
+                  "type": "text"
+                },
+                {
+                  "key": "images[]",
+                  "type": "file",
+                  "value": null
+                }
+              ]
+            },
+            "url": {
+              "raw": "{{base_url}}/api/news-events/{{news_event_id}}",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "news-events",
+                "{{news_event_id}}"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Delete News/Event",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/api/news-events/{{news_event_id}}",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "news-events",
+                "{{news_event_id}}"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Blogs",
+      "item": [
+        {
+          "name": "Get All Blogs",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/blogs",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "blogs"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get Single Blog",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/blogs/{{blog_id}}",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "blogs",
+                "{{blog_id}}"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Create Blog",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "title",
+                  "value": "Blog title",
+                  "type": "text"
+                },
+                {
+                  "key": "description",
+                  "value": "Blog description",
+                  "type": "text"
+                },
+                {
+                  "key": "images[]",
+                  "type": "file",
+                  "value": null
+                },
+                {
+                  "key": "type",
+                  "value": "",
+                  "type": "text"
+                }
+              ]
+            },
+            "url": {
+              "raw": "{{base_url}}/api/blogs",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "blogs"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Update Blog",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "61|zZZKlDS0InToCAtfFs2xLxzZP2DozX9Zc3Ilv0px8819f421",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "title",
+                  "value": "ملعب خماسي",
+                  "type": "text"
+                },
+                {
+                  "key": "description",
+                  "value": "Updated description",
+                  "type": "text"
+                },
+                {
+                  "key": "images[]",
+                  "type": "file",
+                  "src": "/D:/54bd601eaab926d645b94fdf76d5315e.jpg"
+                }
+              ]
+            },
+            "url": {
+              "raw": "{{base_url}}/api/blogs/5",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "blogs",
+                "5"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Delete Blog",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/api/blogs/{{blog_id}}",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "blogs",
+                "{{blog_id}}"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Chairman Message",
+      "item": [
+        {
+          "name": "Get All Chairman Messages",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/chairman-messages",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "chairman-messages"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get Single Chairman Message",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/chairman-messages/1",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "chairman-messages",
+                "1"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Create Chairman Message",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "119|fjgIaJzHJVsLWMGmosRvhRpsVQ660anfqVOPzAtV78d9ece8",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "title",
+                  "value": "كلمة الرئيس التنفيذي لشركة ملاعب بلاي برو",
+                  "type": "text"
+                },
+                {
+                  "key": "description",
+                  "value": "بسم الله الرحمن الرحيم\nوبعونه سبحانه وتعالى نستعين ،\nاليوم نعلن افتتاح وتدشين أكاديمية بلاي برو و يسرّني ويشرّفني في هذا اليوم المبارك أن أرحّب بكم جميعًا في افتتاح ملاعب\nبلاي برو، هذا الصرح الرياضي الذي يجسّد طموح الشباب السعودي وروح المبادرة الوطنية، ويواكب تطلعات قيادتنا\nالرشيدة في تحقيق رؤية المملكة العربية السعودية 2030\nلقد جاءت فكرة ملاعب بلاي برو لتكون أكثر من مجرد مشروع ملاعب، فهي منصة رياضية وتقنية تهدف إلى تطوير\nالمواهب، وتعزيز نمط الحياة الصحي، ورفع مستوى جودة الحياة في مجتمعنا، انسجامًا مع التوجّه الوطني نحو مجتمعٍ حيوي\nواقتصادٍ مزدهر ووطنٍ طموح . فمشروعنا اليوم ليس فقط ملعبًا يلعب فيه اللاعبون، بل مساحة تُبنى فيها الأحلام، وتنمو فيها الخبرات، وتُصنع من خلالها\nقصص النجاح .\nتأسّست بلاي برو على مبدأ بسيط وواضح: أن تصبح الرياضة متاحة، سهلة، وممتعة للجميع للاعبين، للهواة، ولأصحاب\nالمنشآت الرياضية على حد سواء . لقد شاهدنا كيف كانت عملية الحجز والتنظيم وإدارة الملاعب تمثل تحديًا كبيرًا على أرض الواقع؛ فكان هدفنا أن نبني حلّاً\nتقنيًا متطورًا يضع اللاعبين في قلب المشهد، ويسهّل عليهم الرحلة، ويُطلق إمكاناتهم .\nوفي هذه المناسبة، نتقدّم بأسمى آيات الشكر والعرفان إلى قيادتنا الرشيدة – خادم الحرمين الشريفين الملك سلمان بن عبدالعزيز آل سعود ،\nوولي عهده الأمين صاحب السمو الملكي الأمير محمد بن سلمان بن عبدالعزي ز – حفظهما الله – على ما يقدمانه من دعمٍ ورعايةٍ واهتمامٍ متواصل لتطوير قطاع الرياضة والشباب والاستثمار في الإنسان السعودي .\nكما نتوجه بجزيل الشكر والتقدير إلى كافة الهيئات والمؤسسات الحكومية التي ساهمت في دعم وتمكين هذا المشروع، وفي\nمقدمتها :\n•\nوزارة الرياضة، على جهودها في تطوير البنية التحتية الرياضية .\n•\nوزارة الشؤون البلدية والقروية والإسكان، على تهيئة المواقع وتسهيل الإجراءات .\n•\nوزارة التجار ة والهيئة العامة للمنشآت الصغيرة والمتوسطة )منشآت(، على تمكين رواد الأعمال .\n•\nأمانة المنطقة الشرقية، على تعاونها وتسهيلها للإجراءات الفنية والبلدية .\n•\nالهيئة العامة للترفيه، لدعم الأنشطة المجتمعية والفعاليات .\n•\nالاتحاد السعودي لكرة القد م والهيئة العامة للرياضة، على نشر ثقافة الاحتراف وتنظيم المنافسات .\n•\nوزارة التعليم، على مساندتها الدائمة للبرامج التي تنمّي مهارات الطلاب .\n•\nوزارة الداخلية والدفاع المدني وهيئة الهلال الأحمر السعودي، على جهودهم في معايير السلامة وتنظيم الفعاليات .\n•\nوزارة الموارد البشرية والتنمية الاجتماعية وصندوق هدف، على دعم وتطوير الكوادر الوطنية .\n•\nالهيئة العامة للإعلام المرئي والمسموع ووزارة الإعلام، على تغطيتها الإعلامية ودعمها المتواصل للمشروع .\nولا يفوتنا كذلك أن نخصّ بالشكر شركاء النجاح من القطاع الخاص، والمستثمرين، وجميع من ساهم في هذا الإنجاز الذي\nنفخر به اليوم .\nإلى لاعبينا : شكراً على ثقتكم واختياركم بلاي برو، نعدكم بأن نجعل كل مباراة وكل لحظة على الملعب تجربة ملهمة تُثري شغفكم وتطور\nمهاراتكم .\nنحن ف ي بلاي برو نؤمن أن بناء الإنسان لا يقل أهمية عن بناء المكان، وأن هذه الملاعب ستُسهم — بإذن الله — في\nاحتضان المواهب، وصناعة الأبطال، وإلهام الجيل الجديد نحو الاحتراف والتميز .\nوفي الختام نسأ ل الله أن تكون هذه الانطلاقة بدايةً لمشروعات أكبر تخدم شباب وطننا العزيز، وتُسهم في رفعة المملكة تحت\nراية قيادتها الحكيمة . وأؤكد لكم أن أفضل المباريات لم تُلعب بعد، وأفضل القصص لم تُكتب بعد — ودعونا نكتبها مع ا .\nوالسلام عليكم ورحمة الله وبركاته\nأحمد وحيش ي\nالرئيس التنفيذي",
+                  "type": "text"
+                },
+                {
+                  "key": "image",
+                  "type": "file",
+                  "value": null,
+                  "disabled": true
+                }
+              ]
+            },
+            "url": {
+              "raw": "{{base_url}}/api/chairman-messages",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "chairman-messages"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Update Chairman Message",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "119|fjgIaJzHJVsLWMGmosRvhRpsVQ660anfqVOPzAtV78d9ece8",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "title",
+                  "value": "Updated Chairman Message",
+                  "type": "text"
+                },
+                {
+                  "key": "description",
+                  "value": "Updated description",
+                  "type": "text"
+                },
+                {
+                  "key": "image",
+                  "type": "file",
+                  "value": null
+                }
+              ]
+            },
+            "url": {
+              "raw": "{{base_url}}/api/chairman-messages/1",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "chairman-messages",
+                "1"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Delete Chairman Message",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/chairman-messages/1",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "chairman-messages",
+                "1"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Banner",
+      "item": [
+        {
+          "name": "Get All Banners",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/banners",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "banners"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get Single Banner",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/banners/{{banner_id}}",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "banners",
+                "{{banner_id}}"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Create Banner",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "title",
+                  "value": "Banner title",
+                  "type": "text"
+                },
+                {
+                  "key": "description",
+                  "value": "Banner description",
+                  "type": "text"
+                },
+                {
+                  "key": "video",
+                  "type": "file",
+                  "value": null
+                }
+              ]
+            },
+            "url": {
+              "raw": "{{base_url}}/api/banners",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "banners"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Update Banner",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "title",
+                  "value": "Updated title",
+                  "type": "text"
+                },
+                {
+                  "key": "description",
+                  "value": "Updated description",
+                  "type": "text"
+                },
+                {
+                  "key": "video",
+                  "type": "file",
+                  "value": null
+                }
+              ]
+            },
+            "url": {
+              "raw": "{{base_url}}/api/banners/{{banner_id}}",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "banners",
+                "{{banner_id}}"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Delete Banner",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/api/banners/{{banner_id}}",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "banners",
+                "{{banner_id}}"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Products",
+      "item": [
+        {
+          "name": "Get All Products",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/products",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "products"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get Single Product",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/products/{{product_id}}",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "products",
+                "{{product_id}}"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Create Product",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "name",
+                  "value": "Product Name",
+                  "type": "text"
+                },
+                {
+                  "key": "description",
+                  "value": "Product Description",
+                  "type": "text"
+                },
+                {
+                  "key": "price",
+                  "value": "99.99",
+                  "type": "text"
+                },
+                {
+                  "key": "type",
+                  "value": "Electronics",
+                  "type": "text"
+                },
+                {
+                  "key": "quantity",
+                  "value": "100",
+                  "type": "text"
+                },
+                {
+                  "key": "image",
+                  "type": "file",
+                  "value": null
+                }
+              ]
+            },
+            "url": {
+              "raw": "{{base_url}}/api/products",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "products"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Update Product",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "name",
+                  "value": "Updated Product Name",
+                  "type": "text"
+                },
+                {
+                  "key": "description",
+                  "value": "Updated Description",
+                  "type": "text"
+                },
+                {
+                  "key": "price",
+                  "value": "109.99",
+                  "type": "text"
+                },
+                {
+                  "key": "type",
+                  "value": "Home Appliances",
+                  "type": "text"
+                },
+                {
+                  "key": "quantity",
+                  "value": "150",
+                  "type": "text"
+                },
+                {
+                  "key": "image",
+                  "type": "file",
+                  "value": null
+                }
+              ]
+            },
+            "url": {
+              "raw": "{{base_url}}/api/products/{{product_id}}",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "products",
+                "{{product_id}}"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Delete Product",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/api/products/{{product_id}}",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "products",
+                "{{product_id}}"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "order",
+      "item": [
+        {
+          "name": "Admin Get All Orders",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/api/orders",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "orders"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get Single Order",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/api/orders/{{order_id}}",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "orders",
+                "{{order_id}}"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Create Order",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "47|c6RdTqJLdR782dcx5QOiMh98Hd8le4A2r5M5qEdD0492a6be",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"shipping_name\": \"raghda\",\n  \"shipping_phone\": \"01020304060\",\n  \"shipping_address\": \"ismailia\",\n  \"shipping_city\": \"ismailia\",\n  \"coupon_name\": \"PLAY50\",\n\n  \"items\": [\n    {\n      \"product_id\": 1,\n      \"quantity\": 1\n    }\n  ]\n}\n",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{base_url}}/api/orders",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "orders"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Delete Order",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/api/orders/{{order_id}}",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "orders",
+                "{{order_id}}"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Field Transfers and Owners",
+      "item": [
+        {
+          "name": "Field Management",
+          "item": [
+            {
+              "name": "GET My Fields (Owner/Admin)",
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{token}}",
+                    "type": "text"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/my-fields",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "my-fields"
+                  ]
+                },
+                "description": "يجلب الملاعب الخاصة بالمستخدم الحالي (مالك) أو جميع الملاعب (مسؤول)."
+              },
+              "response": []
+            }
+          ]
+        },
+        {
+          "name": "Transfer Requests",
+          "item": [
+            {
+              "name": "POST Create Transfer Request (User)",
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{token}}",
+                    "type": "text"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"current_booking_id\": 101, \n    \"target_field_id\": 5,\n    \"target_period_id\": 25, \n    \"notes\": \"أرغب في تغيير الحجز لتوقيت لاحق في نفس اليوم.\"\n}"
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/transfer-requests",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "transfer-requests"
+                  ]
+                },
+                "description": "إنشاء طلب نقل حجز جديد. يتطلب id الحجز الحالي، id الملعب المستهدف، و id الفترة المستهدفة."
+              },
+              "response": []
+            },
+            {
+              "name": "GET All Transfer Requests (Admin, Owner, Coach)",
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{token}}",
+                    "type": "text"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/transfer-requests",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "transfer-requests"
+                  ]
+                },
+                "description": "عرض جميع طلبات النقل (للمسؤول) أو الطلبات الخاصة بالملعب المملوك/المخصص (للمالك/المدرب)."
+              },
+              "response": []
+            },
+            {
+              "name": "POST Approve Transfer Request (Admin, Owner, Coach)",
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{token}}",
+                    "type": "text"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/transfer-requests/{{transfer_request_id}}/approve",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "transfer-requests",
+                    "{{transfer_request_id}}",
+                    "approve"
+                  ]
+                },
+                "description": "الموافقة على طلب نقل الحجز. هذا الإجراء يقوم بتعديل الحجز الفعلي. (يجب توفير ID الطلب في المسار)."
+              },
+              "response": []
+            },
+            {
+              "name": "DELETE Transfer Request (Admin, Creator)",
+              "request": {
+                "method": "DELETE",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{token}}",
+                    "type": "text"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/transfer-requests/{{transfer_request_id}}",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "transfer-requests",
+                    "{{transfer_request_id}}"
+                  ]
+                },
+                "description": "حذف طلب نقل معلق. (يجب توفير ID الطلب في المسار)."
+              },
+              "response": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "coch",
+      "item": [
+        {
+          "name": "Get All Coaches",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/coaches",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "coaches"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Create Coach",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "59|f7w60MwBlC8YiR83dcHjW5g8XzpF6Oow4zzMvpVud645532a",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "field_id",
+                  "value": "1",
+                  "type": "text"
+                },
+                {
+                  "key": "name",
+                  "value": "Ahmed Coach",
+                  "type": "text"
+                },
+                {
+                  "key": "age",
+                  "value": "30",
+                  "type": "text"
+                },
+                {
+                  "key": "description",
+                  "value": "Professional football coach",
+                  "type": "text"
+                },
+                {
+                  "key": "experience_years",
+                  "value": "5",
+                  "type": "text"
+                },
+                {
+                  "key": "images[]",
+                  "type": "file",
+                  "src": "/D:/2.jpg"
+                },
+                {
+                  "key": "cv_file",
+                  "type": "file",
+                  "src": "/D:/6.jpg"
+                }
+              ]
+            },
+            "url": {
+              "raw": "{{base_url}}/api/coaches",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "coaches"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Show Coach",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/coaches/1",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "coaches",
+                "1"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Update Coach",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "59|f7w60MwBlC8YiR83dcHjW5g8XzpF6Oow4zzMvpVud645532a",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "name",
+                  "value": "Updated Coach Name",
+                  "type": "text",
+                  "disabled": true
+                },
+                {
+                  "key": "experience_years",
+                  "value": "4",
+                  "type": "text"
+                },
+                {
+                  "key": "images[]",
+                  "type": "file",
+                  "value": null,
+                  "disabled": true
+                },
+                {
+                  "key": "cv_file",
+                  "type": "file",
+                  "value": null,
+                  "disabled": true
+                }
+              ]
+            },
+            "url": {
+              "raw": "{{base_url}}/api/coaches/2",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "coaches",
+                "2"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Delete Coach",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/coaches/1",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "coaches",
+                "1"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Rating",
+      "item": [
+        {
+          "name": "create/update Rating",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "5|OV6iXJ8ZBf19nkSVMJ74h2COG3RpKyUuveghs3sQaee6140e",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"type\": \"product\",\r\n    \"id\": 1,\r\n    \"rate\": 4,\r\n    \"comment\": \"درس ممتاز!\"\r\n}\r\n",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{locale}}/api/rate",
+              "host": [
+                "{{locale}}"
+              ],
+              "path": [
+                "api",
+                "rate"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Academies API",
+      "item": [
+        {
+          "name": "Get All Academies",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/academies",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "academies"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get Academy By ID",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/academies/1",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "academies",
+                "1"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Create Academy",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "86|AEgLEU1dGWe3c32kGnDLaaxoLNZivapUd0duRYBH9e3a5f96",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "name",
+                  "value": "PlayPro Academy",
+                  "type": "text"
+                },
+                {
+                  "key": "description",
+                  "value": "أفضل أكاديمية تدريب",
+                  "type": "text"
+                },
+                {
+                  "key": "address",
+                  "value": "محافظة البيضاء - ضاحية الملك فهد - المركز السادس - المملكة العربية السعودية",
+                  "type": "text"
+                },
+                {
+                  "key": "latitude",
+                  "value": "26.41307850555341",
+                  "type": "text"
+                },
+                {
+                  "key": "longitude",
+                  "value": "49.98387224954023",
+                  "type": "text"
+                },
+                {
+                  "key": "stars",
+                  "value": "4.5",
+                  "type": "text"
+                },
+                {
+                  "key": "image",
+                  "type": "file",
+                  "src": "IIL3LWntT/1764612907_6797.jpg"
+                },
+                {
+                  "key": "logo",
+                  "type": "file",
+                  "src": "KiHPaDWAN/logo (1).png"
+                }
+              ]
+            },
+            "url": {
+              "raw": "{{base_url}}/academies",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "academies"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Update Academy",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{token}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "name",
+                  "value": "Updated Academy Name",
+                  "type": "text"
+                },
+                {
+                  "key": "stars",
+                  "value": "5",
+                  "type": "text"
+                },
+                {
+                  "key": "image",
+                  "type": "file",
+                  "value": null
+                }
+              ]
+            },
+            "url": {
+              "raw": "{{base_url}}/academies/1",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "academies",
+                "1"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Delete Academy",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{token}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/academies/1",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "academies",
+                "1"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "/my-academies",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "131|rpimsHJeEzTVPhksMUpR0c6lYKBrAL0zs7yD3QR998c7eda9",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": ""
+            },
+            "url": {
+              "raw": "https://playpro.abdaealmasi.store/api/academies/academies/me",
+              "protocol": "https",
+              "host": [
+                "playpro",
+                "abdaealmasi",
+                "store"
+              ],
+              "path": [
+                "api",
+                "academies",
+                "academies",
+                "me"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Field Bookings API",
+      "item": [
+        {
+          "name": "Get All Bookings",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer <TOKEN>",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/api/bookings",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "bookings"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get My Bookings",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer <TOKEN>",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/api/bookings/my",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "bookings",
+                "my"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Create Booking",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "89|bjbg0H3kc5KCJtPlNXroXC65jk4FxCWWgH6AVSMB1db6c283",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"field_id\": 15,\n  \"period_id\": 88,\n  \"name\": \"محمد\",\n  \"phone\": \"0123456789\",\n  \"email\": \"test@example.com\",\n  \"date\": \"2025-12-25\",\n  \"players_count\": 1,\n  \"payment_type\": \"full\",\n  \"payment_method\": \"cash\"\n}\n"
+            },
+            "url": {
+              "raw": "https://playpro.abdaealmasi.store/api/bookings",
+              "protocol": "https",
+              "host": [
+                "playpro",
+                "abdaealmasi",
+                "store"
+              ],
+              "path": [
+                "api",
+                "bookings"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Show Booking",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer <TOKEN>",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/api/bookings/1",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "bookings",
+                "1"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Delete Booking",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer <TOKEN>",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/api/bookings/1",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "bookings",
+                "1"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Renew Booking",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "126|PsmZZCWGNGpJzVsUI3aLuPqaJVxtn52OPMuQSCid272155b6",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer <TOKEN>",
+                "type": "text"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "\n{\n  \"date\": \"2025-01-20\",\n  \"renewal_price_id\": 1,\n  \"players_count\": 3,\n  \"discount\": 0,\n  \"payment_type\": \"full\",\n  \"payment_method\": \"cash\"\n}\n"
+            },
+            "url": {
+              "raw": "{{base_url}}/api/bookings/1/renew",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "bookings",
+                "1",
+                "renew"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Field Periods API",
+      "item": [
+        {
+          "name": "Get All Periods",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "89|bjbg0H3kc5KCJtPlNXroXC65jk4FxCWWgH6AVSMB1db6c283",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{TOKEN}}"
+              }
+            ],
+            "url": {
+              "raw": "https://playpro.abdaealmasi.store/api/fields/15",
+              "protocol": "https",
+              "host": [
+                "playpro",
+                "abdaealmasi",
+                "store"
+              ],
+              "path": [
+                "api",
+                "fields",
+                "15"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Create Period",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "89|bjbg0H3kc5KCJtPlNXroXC65jk4FxCWWgH6AVSMB1db6c283",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"start_time\": \"11:30\",\n  \"end_time\": \"12:00\",\n  \"price_per_player\": 350,\n  \"type\": \"enable\",\n  \"age_group\": \"5-7 سنوات\",\n  \"days\": [\"Sunday\", \"Tuesday\"],\n  \"coach_ids\": [9, 10]\n}\n"
+            },
+            "url": {
+              "raw": "https://playpro.abdaealmasi.store/api/fields/15/periods",
+              "protocol": "https",
+              "host": [
+                "playpro",
+                "abdaealmasi",
+                "store"
+              ],
+              "path": [
+                "api",
+                "fields",
+                "15",
+                "periods"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get Single Period",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{TOKEN}}"
+              }
+            ],
+            "url": {
+              "raw": "{{BASE_URL}}/fields/1/periods/5",
+              "host": [
+                "{{BASE_URL}}"
+              ],
+              "path": [
+                "fields",
+                "1",
+                "periods",
+                "5"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Update Period",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "89|bjbg0H3kc5KCJtPlNXroXC65jk4FxCWWgH6AVSMB1db6c283",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{TOKEN}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"start_time\": \"04:00\",\n  \"end_time\": \"06:30\"\n}\n"
+            },
+            "url": {
+              "raw": "https://playpro.abdaealmasi.store/api/fields/15/periods/96",
+              "protocol": "https",
+              "host": [
+                "playpro",
+                "abdaealmasi",
+                "store"
+              ],
+              "path": [
+                "api",
+                "fields",
+                "15",
+                "periods",
+                "96"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Change Period Status",
+          "request": {
+            "method": "PATCH",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{TOKEN}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"type\": \"disable\"\n}"
+            },
+            "url": {
+              "raw": "{{BASE_URL}}/fields/1/periods/5/status",
+              "host": [
+                "{{BASE_URL}}"
+              ],
+              "path": [
+                "fields",
+                "1",
+                "periods",
+                "5",
+                "status"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Delete Period",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{TOKEN}}"
+              }
+            ],
+            "url": {
+              "raw": "{{BASE_URL}}/fields/1/periods/5",
+              "host": [
+                "{{BASE_URL}}"
+              ],
+              "path": [
+                "fields",
+                "1",
+                "periods",
+                "5"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Subscription Renewal Prices API",
+      "item": [
+        {
+          "name": "Get All Renewal Prices",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/subscription-renewal-prices",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "subscription-renewal-prices"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get Single Renewal Price",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/subscription-renewal-prices/1",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "subscription-renewal-prices",
+                "1"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Create Renewal Price (Auth)",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "193|u0Ok4CxFJ5MIt0DAivyQAaEbgzh9g0z2XTf8Ikj356903829",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}",
+                "type": "text",
+                "disabled": true
+              },
+              {
+                "key": "Accept",
+                "value": "application/json",
+                "type": "text"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"academy_id\": 1,\n    \"months\": 6,\n    \"price\": 1200.50\n}"
+            },
+            "url": {
+              "raw": "https://playpro.abdaealmasi.store/api/subscription-renewal-prices",
+              "protocol": "https",
+              "host": [
+                "playpro",
+                "abdaealmasi",
+                "store"
+              ],
+              "path": [
+                "api",
+                "subscription-renewal-prices"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Update Renewal Price (Auth)",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}",
+                "type": "text"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"months\": 6,\n  \"price\": 1600\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/api/subscription-renewal-prices/1",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "subscription-renewal-prices",
+                "1"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Delete Renewal Price (Auth)",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/api/subscription-renewal-prices/1",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "subscription-renewal-prices",
+                "1"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Coupons",
+      "item": [
+        {
+          "name": "Admin - Get All Coupons",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "124|WmTMyKD4KMdsowMAGAlPWxlOdokpLqCg6tqvo0Gp63bfbc70",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/api/coupons",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "coupons"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Admin - Create Coupon",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "124|WmTMyKD4KMdsowMAGAlPWxlOdokpLqCg6tqvo0Gp63bfbc70",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"PLAY50\",\n  \"discount\": 50,\n  \"status\": \"active\",\n  \"start_date\": \"2025-12-29\",\n  \"end_date\": \"2026-1-2\"\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/api/coupons",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "coupons"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Admin - Show Coupon",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/api/coupons/1",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "coupons",
+                "1"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Admin - Update Coupon",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"discount\": 75,\n  \"status\": \"active\"\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/api/coupons/1",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "coupons",
+                "1"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Admin - Delete Coupon",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/api/coupons/1",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "coupons",
+                "1"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "User - Check Coupon",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "124|WmTMyKD4KMdsowMAGAlPWxlOdokpLqCg6tqvo0Gp63bfbc70",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"PLAY50\"\n\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/api/coupons/check",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "coupons",
+                "check"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Loyalty Points API",
+      "item": [
+        {
+          "name": "Get All Loyalty Points",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "149|IEThFknqggFJDcDdHwdJuJwLgb3aJGeAYcSe9mg930d17ca2",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/api/loyalty-points",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "loyalty-points"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get Loyalty Point By ID",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/loyalty-points/{{loyalty_id}}",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "loyalty-points",
+                "{{loyalty_id}}"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Create Loyalty Point (Admin)",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"points\": 100,\n  \"discount_percent\": 10\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/loyalty-points",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "loyalty-points"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Update Loyalty Point (Admin)",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"points\": 150,\n  \"discount_percent\": 15\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/loyalty-points/{{loyalty_id}}",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "loyalty-points",
+                "{{loyalty_id}}"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Delete Loyalty Point (Admin)",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/loyalty-points/{{loyalty_id}}",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "loyalty-points",
+                "{{loyalty_id}}"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Terms and Conditions API",
+      "item": [
+        {
+          "name": "Get All Terms",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/api/terms",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "terms"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Create New Term (Admin Only)",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{admin_token}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"title\": \"المسؤولية القانونية\",\n    \"content\": [\n        \"المنشأة غير مسؤولة عن الإصابات الناتجة عن سوء الاستخدام\",\n        \"المنشأة غير مسؤولة عن فقدان الممتلكات الشخصية\"\n    ],\n    \"order\": 7\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/api/terms",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "terms"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Update Term (Admin Only)",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{admin_token}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"title\": \"تحديث عنوان الشرط\",\n    \"content\": [\n        \"نص معدل 1\",\n        \"نص معدل 2\"\n    ]\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/api/terms/1",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "terms",
+                "1"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Delete Term (Admin Only)",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{admin_token}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/terms/1",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "terms",
+                "1"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "About Us API",
+      "item": [
+        {
+          "name": "Public - Get About Us",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/api/about",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "about"
+              ]
+            },
+            "description": "يجلب جميع الأقسام مع الصور المرتبطة بها (متاح للجميع)"
+          },
+          "response": []
+        },
+        {
+          "name": "Admin - Create Section",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{admin_token}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"key\": \"new_section\",\n    \"title\": \"عنوان القسم الجديد\",\n    \"description\": \"وصف مختصر للقسم\",\n    \"items\": [\n        {\"title\": \"نقطة 1\", \"desc\": \"شرح النقطة 1\"},\n        {\"title\": \"نقطة 2\", \"desc\": \"شرح النقطة 2\"}\n    ],\n    \"order\": 100\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/api/about",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "about"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Admin - Upload/Update Image",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{admin_token}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "image",
+                  "type": "file",
+                  "value": null
+                }
+              ]
+            },
+            "url": {
+              "raw": "{{base_url}}/api/about/1/upload-image",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "about",
+                "1",
+                "upload-image"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Admin - Update Section Texts",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{admin_token}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"title\": \"تحديث العنوان فقط\",\n    \"order\": 5\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/api/about/1",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "about",
+                "1"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Admin - Delete Section",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{admin_token}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/about/1",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "about",
+                "1"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "https://playpro.abdaealmasi.store/api/whatsapp/send",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Accept",
+            "value": "application/json",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"phones\": [\r\n        \"201280739906\"\r\n    ],\r\n    \"message\": \"يا صباح الفل، ده أول اختبار للنظام الجديد من بوستمان\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "https://playpro.abdaealmasi.store/api/whatsapp/send",
+          "protocol": "https",
+          "host": [
+            "playpro",
+            "abdaealmasi",
+            "store"
+          ],
+          "path": [
+            "api",
+            "whatsapp",
+            "send"
+          ]
+        }
+      },
+      "response": []
+    }
+  ]
+}
