@@ -28,6 +28,13 @@ use App\Http\Controllers\LoyaltyPointController;
 use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\TermAndConditionController;
 use App\Http\Controllers\AboutSectionController;
+use App\Http\Controllers\AdminBookingController;
+use App\Http\Controllers\StatisticsController;
+
+Route::middleware('auth:sanctum')->group(function () {
+    // روت الإحصائيات الشاملة
+    Route::get('/statistics/detailed', [StatisticsController::class, 'getDetailedStatistics']);
+});
 
 Route::get('about', [AboutSectionController::class, 'index']);
 Route::middleware('auth:sanctum')->post('about/{id}/upload-image', [AboutSectionController::class, 'updateImage']);
@@ -156,6 +163,8 @@ Route::delete('field-images/{imageId}', [FieldImageController::class, 'destroy']
     // ----------------------------
 
 Route::middleware('auth:sanctum')->group(function () {
+    Route::patch('/change-payment-status/{id}', [FieldBookingController::class, 'changePaymentStatus']);
+
     Route::get('/bookings/inactive', [FieldBookingController::class, 'getInactiveAndDebtorCustomers']);
     Route::post('bookings/{id}/renew', [FieldBookingController::class, 'renew']);
 
@@ -164,7 +173,7 @@ Route::get('/academybookings/statistics', [FieldBookingController::class, 'acade
 
     // Admin only – Update booking
 Route::post('/admin/bookings/{id}', [FieldBookingController::class, 'update']);
-
+Route::post('admin/manual-booking', [AdminBookingController::class, 'manualStore']);
 
     // عرض الحجوزات (Admin / Owner)
     Route::get('bookings', [FieldBookingController::class, 'index']);
