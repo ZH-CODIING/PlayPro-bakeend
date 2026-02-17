@@ -39,6 +39,7 @@ class User extends Authenticatable
         'status',
         'registration_role',
         'blocked',
+      'whatsapp_session_id',
     ];
 
     /*

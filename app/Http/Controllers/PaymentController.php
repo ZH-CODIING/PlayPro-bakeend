@@ -268,19 +268,19 @@ private function updateRelatedEntity(
                     'merchant_order_id' => $merchantOrderId,   // رقم الطلب من بايموب
                 ];
 
-                // ✅ إذا نجحت عملية الدفع - تحديث المبالغ المالية
-                if ($paymentStatus === 'paid') {
-                    // المبالغ: المدفوع الجديد = المدفوع القديم + مبلغ العملية الحالية
-                    $updateData['paid'] = $booking->paid + $payment->amount;
-                    $updateData['remaining'] = max(0, $booking->price - $updateData['paid']);
+                // // ✅ إذا نجحت عملية الدفع - تحديث المبالغ المالية
+                // if ($paymentStatus === 'paid') {
+                //     // المبالغ: المدفوع الجديد = المدفوع القديم + مبلغ العملية الحالية
+                //     $updateData['paid'] = $booking->paid + $payment->amount;
+                //     $updateData['remaining'] = max(0, $booking->price - $updateData['paid']);
                     
-                    $this->createZatcaQrForPayment($payment);
+                 $this->createZatcaQrForPayment($payment);
                     
-                    // تطبيق منطق العربون النقدي (Cash Deposit) إن وجد
-                    if ($booking->cash_deposit > 0) {
-                        $booking->applyCashDeposit();
-                    }
-                }
+                //     // تطبيق منطق العربون النقدي (Cash Deposit) إن وجد
+                //     if ($booking->cash_deposit > 0) {
+                //         $booking->applyCashDeposit();
+                //     }
+                // }
 
                 // ✅ إذا كانت العملية استرداد (Refund)
                 if ($paymentStatus === 'refunded') {

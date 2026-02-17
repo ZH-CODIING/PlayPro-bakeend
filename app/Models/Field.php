@@ -75,8 +75,15 @@ public function scopeFilter($query, array $filters)
                       });
             });
         })
-        ->when($filters['academyFilter'] ?? null, function ($q, $academyFilter) {
+      ->when($filters['academyFilter'] ?? null, function ($q, $academyFilter) {
             $q->where('academy_id', $academyFilter);
+        })
+        // إضافة هذا الجزء للتعامل مع الملاعب فقط أو الأكاديميات فقط
+        ->when(isset($filters['field_only']) && $filters['field_only'] == 'true', function ($q) {
+            $q->whereNull('academy_id'); // الملعب فقط هو الذي لا يتبع أكاديمية
+        })
+        ->when(isset($filters['academy_only']) && $filters['academy_only'] == 'true', function ($q) {
+            $q->whereNotNull('academy_id'); // الأكاديمية فقط هي التي لها academy_id
         });
 }
 

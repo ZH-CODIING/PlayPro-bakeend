@@ -227,6 +227,7 @@ public function login(Request $request)
             'email' => ['sometimes', 'required', 'email', Rule::unique('users')->ignore($user->id)],
             'phone' => ['sometimes', 'required', 'string', Rule::unique('users')->ignore($user->id)],
             'avatar' => 'sometimes|image|mimes:jpeg,png,jpg,gif,webp|max:2048',
+          'whatsapp_session_id' => 'sometimes|required|string|max:1000',
         ]);
 
         if ($validator->fails()) {
@@ -239,7 +240,9 @@ public function login(Request $request)
             $user->email = $request->email;
         if ($request->has('phone'))
             $user->phone = $request->phone;
-
+        if ($request->has('whatsapp_session_id'))
+            $user->whatsapp_session_id = $request->whatsapp_session_id;
+      
         if ($request->hasFile('avatar')) {
             $path = $request->file('avatar')->store('avatars', 'public');
             $user->avatar = url('storage/' . $path);

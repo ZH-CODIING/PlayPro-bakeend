@@ -368,6 +368,8 @@ public function futureBookings(Request $request)
         ]);
     }
 
+
+
     /**
      * حجوزات المستخدم الحالي (العميل)
      */
@@ -654,6 +656,26 @@ public function verifyQr(Request $request)
             'data' => $booking
         ]);
     }
+    
+    
+public function changePaymentStatus(Request $request, $id)
+{
+    $data = $request->validate([
+        'payment_status' => 'nullable|in:paid,pending,cancelled,refunded',
+        'field_id'       => 'nullable|exists:fields,id',
+        'period_id'      => 'nullable|exists:field_periods,id',
+    ]);
+
+    $booking = FieldBooking::findOrFail($id);
+
+    $booking->update($data);
+
+    return response()->json([
+        'message' => 'Booking updated successfully',
+        'data'    => $booking->load(['field', 'period', 'academy', 'user'])
+    ]);
+}
+    
 
     /**
      * حذف حجز (Admin / Owner / OwnerAcademy)
