@@ -69,84 +69,175 @@ public function index(Request $request)
     /**
      * إنشاء مقال جديد
      */
-    public function store(Request $request)
+  public function store(Request $request)
     {
-        $this->authorizeRoles($request);
-
         $data = $request->validate([
-            'title'        => 'required|string|max:255',
-            'description'  => 'nullable|string',
-            'images.*'     => 'nullable|image|mimes:jpg,jpeg,png,webp',
+            'title'       => 'required|string|max:255',
+            'description' => 'nullable|string',
             'images_description.*' => 'nullable|string',
-            'type'         => 'nullable|string',
+            'images.*'    => 'nullable|image|mimes:jpg,jpeg,png,webp',
         ]);
 
         $images = [];
 
-        if ($request->hasFile('images')) {
+         if ($request->hasFile('images')) {
             foreach ($request->file('images') as $index => $image) {
                 $images[] = [
-                    'url' => $image->store('blogs', 'public'),
+                    'url' => $image->store('newsEvent', 'public'),
                     'description' => $request->images_description[$index] ?? null,
                 ];
             }
         }
 
-        $data['images'] = $images;
-
-        Log::info('Blog Store Data:', $data);
-
-        $blog = Blog::create($data);
+        $blog = Blog::create([
+            'title'       => $data['title'],
+            'description' => $data['description'] ?? null,
+            'images'      => $images,
+        ]);
 Cache::flush();
 
         return response()->json($blog, 201);
     }
+    
+    
+    
+    public function update(Request $request, Blog $blog)
+{
+    $data = $request->validate([
+        'title'                 => 'sometimes|required|string|max:255',
+        'description'           => 'nullable|string',
+        'images.*'              => 'nullable|image|mimes:jpg,jpeg,png,webp',
+        'images_description.*'  => 'nullable|string',
+        'deleted_images'        => 'nullable|array',
+        'deleted_images.*'      => 'integer',
+    ]);
+
+    // الصور الحالية
+    $currentImages = is_array($blog->images)
+        ? $blog->images
+        : [];
+
+    $imagesChanged = false;
 
     /**
-     * تحديث مقال
+     * 🔴 حذف صور معينة
      */
-    public function update(Request $request, Blog $blog)
-    {
-        $this->authorizeRoles($request);
+    if ($request->filled('deleted_images')) {
 
-        $data = $request->validate([
-            'title'                   => 'sometimes|required|string|max:255',
-            'description'             => 'nullable|string',
-            'images.*'                => 'nullable|image|mimes:jpg,jpeg,png,webp',
-            'images_description.*'    => 'nullable|string',
-            'type'                    => 'nullable|string',
-        ]);
+        foreach ($request->deleted_images as $index) {
 
-        // ---------- تحديث الصور ----------
-        if ($request->hasFile('images')) {
+            if (isset($currentImages[$index])) {
 
-            // حذف الصور القديمة
-            if (is_array($blog->images)) {
-                foreach ($blog->images as $img) {
-                    if (isset($img['url']) && Storage::disk('public')->exists($img['url'])) {
-                        Storage::disk('public')->delete($img['url']);
-                    }
+                // حذف من storage
+                if (
+                    isset($currentImages[$index]['url']) &&
+                    Storage::disk('public')->exists($currentImages[$index]['url'])
+                ) {
+                    Storage::disk('public')->delete($currentImages[$index]['url']);
                 }
-            }
 
-            $images = [];
-            foreach ($request->file('images') as $index => $image) {
-                $images[] = [
-                    'url' => $image->store('blogs', 'public'),
-                    'description' => $request->images_description[$index] ?? null,
-                ];
+                // حذف من array
+                unset($currentImages[$index]);
+                $imagesChanged = true;
             }
-
-            $data['images'] = $images;
         }
 
-        $blog->update($data);
-        Cache::flush();
-
-
-        return response()->json($blog);
+        $currentImages = array_values($currentImages);
     }
 
+    /**
+     * 🟢 تعديل وصف الصور فقط
+     */
+    if ($request->filled('images_description')) {
+
+        foreach ($request->images_description as $index => $desc) {
+
+            if (isset($currentImages[$index])) {
+                $currentImages[$index]['description'] = $desc;
+                $imagesChanged = true;
+            }
+        }
+    }
+
+    /**
+     * 🟡 تعديل / إضافة صور
+     */
+    if ($request->hasFile('images')) {
+
+        foreach ($request->file('images') as $index => $image) {
+
+            // لو فيه صورة قديمة في نفس المكان → امسحيها
+            if (
+                isset($currentImages[$index]['url']) &&
+                Storage::disk('public')->exists($currentImages[$index]['url'])
+            ) {
+                Storage::disk('public')->delete($currentImages[$index]['url']);
+            }
+
+            // خزني الصورة الجديدة
+            $currentImages[$index] = [
+                'url' => $image->store('blog', 'public'),
+                'description' => $request->images_description[$index]
+                    ?? $currentImages[$index]['description']
+                    ?? null,
+            ];
+
+            $imagesChanged = true;
+        }
+    }
+
+    // لو حصل أي تعديل على الصور
+    if ($imagesChanged) {
+        $data['images'] = array_values($currentImages);
+    }
+
+    $blog->update($data);
+    Cache::flush();
+
+    return response()->json($blog->fresh());
+}
+
+/**
+ * حذف صورة واحدة محددة من المقال
+ */
+public function deleteImage(Request $request, Blog $blog)
+{
+    $this->authorizeRoles($request);
+
+    $request->validate([
+        'image_index' => 'required|integer'
+    ]);
+
+    $index = $request->image_index;
+    $images = $blog->images;
+
+    // التأكد أن الـ index موجود في المصفوفة
+    if (!isset($images[$index])) {
+        return response()->json(['message' => 'الصورة غير موجودة'], 404);
+    }
+
+    // 1. حذف الملف الفيزيائي من الـ Storage
+    $imagePath = $images[$index]['url'] ?? null;
+    if ($imagePath && Storage::disk('public')->exists($imagePath)) {
+        Storage::disk('public')->delete($imagePath);
+    }
+
+    // 2. إزالة الصورة من المصفوفة
+    unset($images[$index]);
+
+    // 3. إعادة ترتيب المصفوفة (لأن unset تترك فجوات في الـ keys)
+    $blog->images = array_values($images);
+    $blog->save();
+
+    // تفريغ الكاش
+    Cache::flush();
+
+    return response()->json([
+        'status' => true,
+        'message' => 'تم حذف الصورة بنجاح',
+        'data' => $blog
+    ]);
+}
     /**
      * حذف مقال
      */
