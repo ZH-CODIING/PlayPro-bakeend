@@ -48,8 +48,8 @@ class FieldPeriodController extends Controller
         }
 
         $data = $request->validate([
-            'start_time' => 'required|date_format:H:i',
-            'end_time' => 'required|date_format:H:i|after:start_time',
+            'start_time' => 'required',
+            'end_time'   => 'required',
             'price_per_player' => 'required|numeric|min:0',
             'type' => 'nullable|in:enable,disable',
             'age_group' => 'nullable|string',
@@ -138,8 +138,8 @@ public function update(Request $request, $fieldId, $periodId)
     }
 
     $data = $request->validate([
-        'start_time' => 'required|date_format:H:i',
-        'end_time'   => 'required|date_format:H:i|after:start_time',
+        'start_time' => 'required',
+        'end_time'   => 'required',
         'price_per_player' => 'nullable|numeric|min:0',
         'type'       => 'nullable|in:enable,disable',
         'age_group'  => 'nullable|string',

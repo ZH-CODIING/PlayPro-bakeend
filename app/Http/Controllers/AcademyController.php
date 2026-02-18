@@ -31,19 +31,22 @@ class AcademyController extends Controller
     /**
      * عرض كل الأكاديميات (Admin فقط)
      */
-    public function index(Request $request)
-    {
+ public function index(Request $request)
+{
+    $academies = Academy::withCount('fields')
+        // التحقق من أن المستخدم المرتبط (OwnerAcademy) غير محظور
+        ->whereHas('user', function ($query) {
+            $query->where('blocked', false);
+        })
+        ->latest()
+        ->filter($request->all())
+        ->get();
 
-        $academies = Academy::withCount('fields')
-            ->latest()
-            ->filter($request->all())
-            ->get();
-
-        return response()->json([
-            'status' => true,
-            'data' => $academies
-        ]);
-    }
+    return response()->json([
+        'status' => true,
+        'data' => $academies
+    ]);
+}
 
     /**
      * عرض الأكاديميات الخاصة بالمستخدم أو Admin يشوف الكل
@@ -87,28 +90,29 @@ public function myAcademies(Request $request)
     /**
      * عرض أكاديمية واحدة مع الملاعب
      */
-    public function show(Request $request, $id)
-    {
-     
-
-        $academy = Academy::with([
+  public function show(Request $request, $id)
+{
+    $academy = Academy::whereHas('user', function ($q) {
+            $q->where('blocked', false);
+        })
+        ->with([
             'fields.icon',
             'fields.gallery',
             'fields.periods.coaches',
         ])->find($id);
 
-        if (! $academy) {
-            return response()->json([
-                'status' => false,
-                'message' => 'الأكاديمية غير موجودة'
-            ], 404);
-        }
-
+    if (! $academy) {
         return response()->json([
-            'status' => true,
-            'data' => $academy
-        ]);
+            'status' => false,
+            'message' => 'الأكاديمية غير موجودة أو حساب صاحبها موقوف'
+        ], 404);
     }
+
+    return response()->json([
+        'status' => true,
+        'data' => $academy
+    ]);
+}
 
     /**
      * إنشاء أكاديمية جديدة

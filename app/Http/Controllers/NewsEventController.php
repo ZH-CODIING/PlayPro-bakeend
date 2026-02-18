@@ -79,13 +79,15 @@ Cache::flush();
         return response()->json($newsEvent, 201);
     }
 
-    public function update(Request $request, NewsEvent $newsEvent)
+public function update(Request $request, NewsEvent $newsEvent)
 {
     $data = $request->validate([
         'title'                 => 'sometimes|required|string|max:255',
         'description'           => 'nullable|string',
         'images.*'              => 'nullable|image|mimes:jpg,jpeg,png,webp',
         'images_description.*'  => 'nullable|string',
+        'deleted_images'        => 'nullable|array',
+        'deleted_images.*'      => 'integer',
     ]);
 
     // الصور الحالية
@@ -93,20 +95,50 @@ Cache::flush();
         ? $newsEvent->images
         : [];
 
+    $imagesChanged = false;
+
     /**
-     * 🟢 الحالة 1: تعديل وصف الصور فقط
+     * 🔴 حذف صور معينة
+     */
+    if ($request->filled('deleted_images')) {
+
+        foreach ($request->deleted_images as $index) {
+
+            if (isset($currentImages[$index])) {
+
+                // حذف من storage
+                if (
+                    isset($currentImages[$index]['url']) &&
+                    Storage::disk('public')->exists($currentImages[$index]['url'])
+                ) {
+                    Storage::disk('public')->delete($currentImages[$index]['url']);
+                }
+
+                // حذف من array
+                unset($currentImages[$index]);
+                $imagesChanged = true;
+            }
+        }
+
+        $currentImages = array_values($currentImages);
+    }
+
+    /**
+     * 🟢 تعديل وصف الصور فقط
      */
     if ($request->filled('images_description')) {
 
         foreach ($request->images_description as $index => $desc) {
+
             if (isset($currentImages[$index])) {
                 $currentImages[$index]['description'] = $desc;
+                $imagesChanged = true;
             }
         }
     }
 
     /**
-     * 🟡 الحالة 2: تعديل / إضافة صور (من غير مسح الباقي)
+     * 🟡 تعديل / إضافة صور
      */
     if ($request->hasFile('images')) {
 
@@ -127,19 +159,23 @@ Cache::flush();
                     ?? $currentImages[$index]['description']
                     ?? null,
             ];
+
+            $imagesChanged = true;
         }
     }
 
     // لو حصل أي تعديل على الصور
-    if ($request->hasFile('images') || $request->filled('images_description')) {
+    if ($imagesChanged) {
         $data['images'] = array_values($currentImages);
     }
 
     $newsEvent->update($data);
-Cache::flush();
+    Cache::flush();
 
-    return response()->json($newsEvent);
+    return response()->json($newsEvent->fresh());
 }
+
+
 
 
     public function destroy(NewsEvent $newsEvent)

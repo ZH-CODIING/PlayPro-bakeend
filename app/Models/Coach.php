@@ -20,6 +20,7 @@ class Coach extends Model
         'experience_years',
         'images',
         'cv_file',
+        'phone',
     ];
 
     protected $casts = [

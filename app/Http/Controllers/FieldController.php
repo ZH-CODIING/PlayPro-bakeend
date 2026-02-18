@@ -88,30 +88,32 @@ public function mostBooked(Request $request)
     /**
      * عرض كل الملاعب (Public Index)
      */
-    public function index(Request $request)
-    {
-        $query = Field::with([
-            'owner:id,name,phone',
-            'periods.coaches:id,name', 
-            'icon',
-            'gallery'
-        ]);
-if ($request->has('is_featured')) {
-    $query->where('is_featured', $request->boolean('is_featured') ? 1 : 0);
+public function index(Request $request)
+{
+    $query = Field::with([
+        'owner:id,name,phone',
+        'periods.coaches:id,name', 
+        'icon',
+        'gallery'
+    ])
+    // التحقق من أن صاحب الملعب غير محظور
+    ->whereHas('owner', function ($q) {
+        $q->where('blocked', false);
+    });
+
+    if ($request->has('is_featured')) {
+        $query->where('is_featured', $request->boolean('is_featured') ? 1 : 0);
+    }
+
+    $fields = $query->filter($request->all())->paginate(10);
+
+    return response()->json([
+        'status'        => true,
+        'total_fields'  => $fields->count(),
+        'total_cities'  => Field::distinct('city')->count('city'),
+        'data'          => $fields
+    ]);
 }
-
-
-     
-        $fields = $query->filter($request->all())->paginate(10);
-
-        return response()->json([
-            'status'        => true,
-            'total_fields'  => $fields->count(),
-            'total_cities'  => Field::distinct('city')->count('city'),
-            'data'          => $fields
-        ]);
-    } 
-
     /**
      * عرض ملاعب المستخدم المالك أو صاحب الأكاديمية أو الآدمن
      */
@@ -167,8 +169,21 @@ public function show($id)
         'periods.coaches:id,name',
         'icon',
         'gallery'
-    ])->findOrFail($id);
-   return response()->json([
+    ])
+    // إضافة شرط التأكد من عدم حظر المالك
+    ->whereHas('owner', function ($q) {
+        $q->where('blocked', false);
+    })
+    ->find($id); // استخدم find بدلاً من findOrFail لتخصيص الرسالة
+
+    if (!$field) {
+        return response()->json([
+            'status' => false,
+            'message' => 'الملعب غير موجود أو حساب صاحبه معلق'
+        ], 404);
+    }
+
+    return response()->json([
         'status' => true,
         'data' => $field
     ]);
@@ -200,8 +215,8 @@ public function store(Request $request)
             'is_featured' => 'nullable|boolean',
             'academy_id' => 'nullable|exists:academies,id',
             'periods' => 'required|array|min:1',
-            'periods.*.start_time' => 'required|date_format:H:i',
-            'periods.*.end_time' => 'required|date_format:H:i|after:periods.*.start_time',
+            'periods.*.start_time' => 'required',
+            'periods.*.end_time' => 'required',
             'periods.*.price_per_player' => 'required|numeric|min:0',
             'periods.*.age_group' => 'nullable|string',
             'periods.*.capacity' => 'nullable|string',
@@ -276,8 +291,8 @@ public function store(Request $request)
             'academy_id' => 'nullable|exists:academies,id',  
             'periods' => 'nullable|array',
             'periods.*.capacity' => 'nullable|string',
-            'periods.*.start_time' => 'required|date_format:H:i',
-            'periods.*.end_time' => 'required|date_format:H:i|after:periods.*.start_time',
+            'periods.*.start_time' => 'required',
+            'periods.*.end_time' => 'required',
             'periods.*.price_per_player' => 'required|numeric|min:0',
             'periods.*.age_group' => 'nullable|string',
             'periods.*.days' => 'nullable|array',

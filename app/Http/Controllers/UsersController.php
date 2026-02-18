@@ -120,6 +120,7 @@ public function updateRole(Request $request, $userId)
             User::ROLE_COACH,
             User::ROLE_OWNER_ACADEMY,
             User::ROLE_MANAGEMENT,
+            User::ROLE_EMPLOYEE, 
             User::ROLE_USER
         ]),
     ]);
@@ -227,7 +228,7 @@ public function login(Request $request)
             'email' => ['sometimes', 'required', 'email', Rule::unique('users')->ignore($user->id)],
             'phone' => ['sometimes', 'required', 'string', Rule::unique('users')->ignore($user->id)],
             'avatar' => 'sometimes|image|mimes:jpeg,png,jpg,gif,webp|max:2048',
-          'whatsapp_session_id' => 'sometimes|required|string|max:1000',
+            'whatsapp_session_id' => 'sometimes|nullable|string|max:1000',
         ]);
 
         if ($validator->fails()) {
@@ -240,8 +241,10 @@ public function login(Request $request)
             $user->email = $request->email;
         if ($request->has('phone'))
             $user->phone = $request->phone;
-        if ($request->has('whatsapp_session_id'))
-            $user->whatsapp_session_id = $request->whatsapp_session_id;
+        if ($request->has('whatsapp_session_id')) {
+            $user->whatsapp_session_id = $request->whatsapp_session_id ?: null;
+        }
+
       
         if ($request->hasFile('avatar')) {
             $path = $request->file('avatar')->store('avatars', 'public');
@@ -350,13 +353,14 @@ public function adminCreateUser(Request $request)
         'email'    => 'required|email|unique:users,email',
         'password' => 'required|string|min:6',
         'phone'    => 'required|string|unique:users,phone',
-        // استخدام الثوابت من موديل User
+        // استخدام الثوابت من موديل User مع إضافة رول الموظف
         'role'     => 'required|string|in:' . implode(',', [
             User::ROLE_ADMIN,
             User::ROLE_OWNER,
             User::ROLE_COACH,
             User::ROLE_OWNER_ACADEMY,
             User::ROLE_MANAGEMENT,
+            User::ROLE_EMPLOYEE, 
             User::ROLE_USER
         ]),
         'status'   => 'nullable|string|in:active,pending',
@@ -378,7 +382,7 @@ public function adminCreateUser(Request $request)
 
     return response()->json([
         'status'  => true,
-        'message' => 'تم إنشاء الحساب بنجاح بنجاح بنجاح',
+        'message' => 'تم إنشاء الحساب بنجاح',
         'user'    => $user
     ], 201);
 }

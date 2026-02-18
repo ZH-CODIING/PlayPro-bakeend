@@ -22,6 +22,7 @@ class User extends Authenticatable
     const ROLE_COACH       = 'Coach';
     const ROLE_OWNER_ACADEMY   = 'OwnerAcademy';
     const ROLE_MANAGEMENT  = 'Management';
+    const ROLE_EMPLOYEE      = 'Employee'; 
     const ROLE_USER        = 'User';
 
     /*
@@ -133,6 +134,11 @@ class User extends Authenticatable
     public function isManagement()
     {
         return $this->role === self::ROLE_MANAGEMENT;
+    }
+  // الدالة المساعدة للموظف
+    public function isEmployee()
+    {
+        return $this->role === self::ROLE_EMPLOYEE;
     }
 
     public function isUser()

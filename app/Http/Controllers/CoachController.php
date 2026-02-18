@@ -38,6 +38,7 @@ class CoachController extends Controller
             'experience_years' => 'nullable|integer|min:0',
             'images.*'         => 'nullable|image|mimes:jpg,jpeg,png',
             'cv_file'          => 'nullable|mimes:pdf,doc,docx',
+            'phone'    => 'nullable|string',
         ]);
 
         $data['user_id'] = Auth::id();
@@ -90,6 +91,7 @@ class CoachController extends Controller
             'experience_years' => 'nullable|integer|min:0',
             'images.*'         => 'nullable|image|mimes:jpg,jpeg,png',
             'cv_file'          => 'nullable|mimes:pdf,doc,docx',
+          'phone'    => 'nullable|string',
         ]);
 
         if ($request->hasFile('images')) {
