@@ -19,7 +19,7 @@ return new class extends Migration {
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
           $table->string('whatsapp_session_id');
-            $table->enum('role', ['Admin','Coach','Owner','OwnerAcademy','Management','User'])->default('User');
+            $table->enum('role', ['Admin','Coach','Owner','OwnerAcademy','Management','Employee','User'])->default('User');
             $table->string('registration_role')->nullable();
             $table->string('status')->default('pending');
         $table->boolean('blocked')->default(false);

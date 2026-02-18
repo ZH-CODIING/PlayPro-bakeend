@@ -18,7 +18,7 @@ return new class extends Migration
             $table->foreignId('field_id')
                   ->constrained()
                   ->cascadeOnDelete();
-
+            $table->string('phone')->nullable();
             $table->string('name')->nullable();
             $table->unsignedInteger('age')->nullable();
 
