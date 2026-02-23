@@ -17,6 +17,47 @@ use Illuminate\Support\Facades\Storage;
 class PaymentController extends Controller
 {
     /**
+ * تحديث الملاحظات الخاصة بعملية الدفع
+ */
+public function updateNotes(Request $request, $id)
+{
+    // 1. التحقق من المدخلات
+    $request->validate([
+        'notes' => 'nullable|string|max:1000',
+    ]);
+
+    try {
+        // 2. البحث عن الدفع
+        $payment = Payment::findOrFail($id);
+
+        // 3. التحقق من الصلاحيات (اختياري: إذا أردت أن يعدلها المالك أو الأدمن فقط)
+        $user = Auth::user();
+        if ($user->role !== User::ROLE_ADMIN && $user->id !== $payment->user_id) {
+             return response()->json(['status' => false, 'message' => 'غير مصرح لك بتعديل هذه الملاحظات'], 403);
+        }
+
+        // 4. تحديث الحقل (تأكد أن حقل notes موجود في fillable في موديل Payment)
+        $payment->update([
+            'notes' => $request->notes
+        ]);
+
+        return response()->json([
+            'status' => true,
+            'message' => 'تم تحديث الملاحظات بنجاح',
+            'data' => [
+                'notes' => $payment->notes
+            ]
+        ]);
+
+    } catch (\Exception $e) {
+        return response()->json([
+            'status' => false,
+            'message' => 'حدث خطأ أثناء التحديث',
+            'error' => $e->getMessage()
+        ], 500);
+    }
+}
+    /**
      * معالجة الويب هوك من بايموب
      * يتم استدعاؤها تلقائياً عند أي تحديث على حالة الدفع
      */
@@ -699,5 +740,6 @@ private function tlvSlot($tag, $value)
     $length = strlen($value); // للأمان مع UTF-8 يفضل استخدام mb_strlen في بعض الحالات لكن strlen كافية إذا كان الملف UTF-8
     return chr($tag) . chr($length) . $value;
 }
+
 
 }
