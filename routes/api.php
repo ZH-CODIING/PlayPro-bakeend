@@ -344,6 +344,7 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::delete('/coaches/{id}', [CoachController::class, 'destroy']);
 
 });
+Route::post('payments/{id}/notes', [PaymentController::class, 'updateNotes'])->middleware('auth:sanctum');
 
 // ----------------------------
     // RatingController
@@ -459,3 +460,4 @@ Route::post('/payments/{payment}/intention', [PaymentController::class, 'createI
 Route::post('/payments/{payment}/refund', [PaymentController::class, 'refund']);
 
 });
+
